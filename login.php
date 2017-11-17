@@ -9,14 +9,6 @@
 </form>
 
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
-
-require 'vendor/autoload.php';
-
-$app = new \Slim\App(array(
-    'debug' => true
-));
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // collect value of input field
