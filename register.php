@@ -7,7 +7,6 @@
   Password: <input type="text" name="fpassword">
   <input type="submit">
 </form>
-<button type="button" onclick="register.php">Register</button>
 
 <?php
 
@@ -22,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     else 
     {
-			// NEED TO ADD CODE FOR LOGIN CHECK
       // Add to the SQL Database
       $servername = "localhost";
       $username = "root";
