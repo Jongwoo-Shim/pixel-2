@@ -1,0 +1,38 @@
+nav {
+    background: #668a78;
+    margin: -8px;
+    height: 90px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+.logo-img {
+    margin-top: -12px;
+    margin-left: 12px;
+}
+.nav-bar {
+    color: black;
+    position: absolute;
+    top: 41px;
+    right: 14%;
+}
+.navbar-right {
+    position: absolute;
+    top: 41px;
+    right: 14%;
+}
+.body_page {
+    width: 102%;
+    margin: -8px;
+}
+
+.banner_img {
+    background: #a28a8a;
+    margin-top: 89px;
+    height: 360px;
+}
+
+.features {
+    background: blue;
+}
