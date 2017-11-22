@@ -1,0 +1,28 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.grid.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid.ul{
+	list-style = none;
+	display = inline-block;
+}
+
+.grid,
+ul li{
+	width:;
+	height:;
+	margin:1px;
+}
+
+.block{
+	background:#ccc;
+	cursor:pointer;
+	
+}
