@@ -10,9 +10,10 @@ def gridGenerator(n):
 		f.write("<body>\n")
 		f.write("\t <div class = \"grid\"\n")
 		for i in range(n):
-			f.write("\t <ul class = row" + str(i) + ">")
+			f.write("\t <ul class = row" + str(i) + ">\n")
 			for i in range(n + 1):
 				f.write("\t <li class = \"block\"> </li>\n")
+		f.write("\t <input type=\"color\">\n")
 		f.write("</body>\n")
 		f.write("</html>")
 gridGenerator(input())
