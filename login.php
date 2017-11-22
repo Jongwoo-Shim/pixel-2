@@ -11,16 +11,17 @@
 
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
     // collect value of input field
-    $name = htmlspecialchars($_REQUEST['fname']); 
+    $name = htmlspecialchars($_REQUEST['fname']);
     $pass = htmlspecialchars($_REQUEST['fpassword']);
-    
+
     if (empty($name) || empty($pass))
     {
     	echo "ERROR";
-    } 
-    else 
+    }
+    else
     {
 			// NEED TO ADD CODE FOR LOGIN CHECK
       // Add to the SQL Database
@@ -29,24 +30,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $password = "";
       $dbname = "Store";
 
-      try {
+      try
+      {
           $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
           // set the PDO error mode to exception
           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $sql = "INSERT INTO Customers (username, password)
-          VALUES ('$name', '$pass')";
-          // use exec() because no results are returned
-          $conn->exec($sql);
-          echo "New record created successfully";
-          }
-      catch(PDOException $e)
-          {
-          echo $sql . "<br>" . $e->getMessage();
-          }
+          $result1 = mysql_query("SELECT username, password FROM Users WHERE username = '".$name."' AND  password = '".$pass."'");
 
-      $conn = null;    
+          if(mysql_num_rows($result1) > 0 )
+          {
+              // LOGIN WORKS
+          }
+          else
+          {
+              echo 'The username or password is incorrect!';
           }
       }
+      catch(PDOException $e)
+      {
+          echo $sql . "<br>" . $e->getMessage();
+      }
+
+      $conn = null;
+    }
+}
 ?>
 
 </body>
