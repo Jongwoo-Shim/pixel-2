@@ -8,7 +8,7 @@ def gridGenerator(n):
 		f.write("\t <script src=\"PixelPage.js\"></script>\n")
 		f.write("</head>\n")
 		f.write("<body>\n")
-		f.write("\t <div class = \"grid\"\n")
+		f.write("\t <div class = \"grid\">\n")
 		for i in range(n):
 			f.write("\t <ul class = row" + str(i) + ">\n")
 			for i in range(n + 1):
