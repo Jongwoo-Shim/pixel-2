@@ -17,7 +17,7 @@ def gridGenerator(n):
 				f.write("\t<li class = \"block\"> </li>\n")
 			f.write("\t</ul>\n")
 		f.write("\t</div>")
-		f.write("\t<input type=\"color\">\n")
+		f.write("\t<input type=\"color\" name=\"selectedColour\" value=\"#0000\">\n\t<input type="submit">\n")
 		f.write("</body>\n")
 		f.write("</html>")
 gridGenerator(input())
