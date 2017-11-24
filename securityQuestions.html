@@ -1,0 +1,28 @@
+<!-- <script type = "text/javascript">
+	$(document).read(function(e)){
+		$('header').load('name.html', function(){alert('loaded')});
+	});
+</script> -->
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src = "securityQuestions.js"></script>
+</head>
+<body>
+	<select id = "securityQ1" name = "questions" onchange = updatePage()>
+		<option value = q1>What was your password?</option>
+		<option value = q2>What is your favorite colour?</option>
+		<option value = q3>What is the Current Time>></option>
+		<option value = q4>Which security question did you pick?></option>
+	</select>
+	<form>
+		<input type = "text" name = "entry">
+		<select id = "securityQ2" name = "questions" >
+			<option value = q1>What was your password?</option>
+			<option value = q2>What is your favorite colour?</option>
+			<option value = q3>What is the Current Time>></option>
+			<option value = q4>Which security question did you pick?</option>
+		</select>
+	</form>
+</body>
+</html>
