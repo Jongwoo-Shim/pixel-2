@@ -7,7 +7,7 @@ function startup(){
   selectedColour.select();
 }
 
-$(".dot").on("click", function() {
+$(".block").on("click", function() {
   currentDot = $(this);
   $('#selectedColour')[0].click();
 });
