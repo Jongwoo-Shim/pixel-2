@@ -18,34 +18,32 @@
   </form>
 
   <?php
-  $count = 0
-  $captcha = false
-  else{
-    echo"
-    <script type=\"text/javascript\">
-    document.getElementById().style.display = 'none'
-    </script>
-    "
-    }
+  $count = 0;
+  $captcha = false;
+  // else{
+  //   echo "
+  //   <script type=\"text/javascript\">
+  //   document.getElementById().style.display = 'none'
+  //   </script>
+  //   ";
+  //   }
   if ($_SERVER["REQUEST_METHOD"] == "POST")
-  {   
+  {
       while(1){
-        if($count > 3){
-          echo "
-          <script type =\ "text/javascript\">
-          document.getElementById("your form id").style.display="block";
-          </script>
-          "
-        }
+        // if($count > 3){
+        //   echo "<script type =\ "text/javascript\">
+        //       document.getElementById("your form id").style.display="block";
+        //   </script>";
+        // }
           // collect value of input field
         $name = htmlspecialchars($_REQUEST['fname']);
         $pass = htmlspecialchars($_REQUEST['fpassword']);
         //adjusts the captcha value
-        echo "
-        <script src="recaptcha.js"></script>
-        "
+        // echo "
+        // <script src="recaptcha.js"></script>
+        // ";
         if (empty($name) || empty($pass) || $captcha){
-          $count++
+          $count++;
           echo "Login Failure";
         }
         else{
@@ -56,19 +54,19 @@
           $dbname = "Store";
 
           try{
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $result1 = mysql_query("SELECT username, password FROM Users WHERE username = '".$name."' AND  password = '".$pass."'");
+            $con = mysqli_connect($servername, $username, $password, $dbname) or die("Error you suck " . mysqli_error($con));
+            $result1 = mysqli_query($con, "SELECT username FROM Customers WHERE username = '".$name."'");
 
-            if(mysql_num_rows($result1) > 0 ){
+            if (!$result1) {
+              die(mysqli_error($con));
+            }
+
+            if(mysqli_num_rows($result1) > 0 ){
                 echo "Username Taken";
             }
             else{
-              $sql = "INSERT INTO Customers (username, password)
-              VALUES ('$name', '$pass')";
-              // use exec() because no results are returned
-              $conn->exec($sql);
+              mysqli_query($con,"INSERT INTO Customers (username, password)
+              VALUES ('$name', '$pass')");
               echo "New Account Created";
             }
           }
@@ -80,7 +78,7 @@
           break;
         }
       }
-      
+
   }
   ?>
 </body>
