@@ -4,6 +4,7 @@ window.addEventListener("load", startup, false);
 function startup(){
   selectedColour = document.querySelector("#selectedColour");
   selectedColour.addEventListener("change", sendUpdate, false);
+  selectedColour.addEventListener("input",selectingColour,false)
   selectedColour.select();
 }
 
@@ -12,10 +13,9 @@ $(".dot").on("click", function() {
   $('#selectedColour')[0].click();
 });
 
-$('#selectedColour').on('input', function(event) {
-    currentDot.css("background-color", event.delegateTarget.value);
-});
-
+function selectingColour(event){
+  currentDot.css("background-color", event.target.value);
+}
 function sendUpdate(event) {
   alert("hello World")
 }
