@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head><
-  <title>Registration Page </title>
+<head>
+  <title> Registration Page </title>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
