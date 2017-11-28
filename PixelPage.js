@@ -3,7 +3,6 @@ var currentDot;
 window.addEventListener("load", startup, false);
 function startup(){
   selectedColour = document.querySelector("#selectedColour");
-  selectedColour.addEventListener("change", sendUpdate, false);
   selectedColour.addEventListener("input",selectingColour,false)
   selectedColour.select();
 }

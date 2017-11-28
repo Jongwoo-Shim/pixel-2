@@ -17,14 +17,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     // collect value of input field
-    $captcha = false
-    while(1){
+    // $captcha = false
+    // while(1){
     $name = htmlspecialchars($_REQUEST['fname']);
     $pass = htmlspecialchars($_REQUEST['fpassword']);
-    echo "
-    <script src="recaptcha.js"></script>
-    "
-    if (empty($name) || empty($pass) || $captcha){
+    // echo "
+    // <script src="recaptcha.js"></script>
+    // "
+    if (empty($name) || empty($pass)) // || $captcha)
+    {
       echo "Login Failed";
     }
     else{
@@ -35,28 +36,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
       $password = "";
       $dbname = "Store";
 
-      try{
-          $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-          // set the PDO error mode to exception
-          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $result1 = mysql_query("SELECT username, password FROM Users WHERE username = '".$name."' AND  password = '".$pass."'");
+      // try{
+        $con = mysqli_connect($servername, $username, $password, $dbname) or die("Error you suck " . mysqli_error($con));
+        $result1 = mysqli_query($con, "SELECT username FROM Customers WHERE username = '".$name."'");
 
-          if(mysql_num_rows($result1) > 0 ){
-              // LOGIN WORKS
-            break;
-          }
-          else{
-              echo 'The username or password is incorrect!';
-          }
-      }
-      catch(PDOException $e){
-          echo $sql . "<br>" . $e->getMessage();
-      }
+        if (!$result1) {
+          die(mysqli_error($con));
+        }
 
-      $conn = null;
+        if(mysqli_num_rows($result1) > 0 )
+        {
+          $con = null;
+        }
+
+        else
+        {
+          echo 'The username or password is incorrect!';
+          $con = null;
+        }
+      // }
+      // catch(PDOException $e){
+      //     echo $sql . "<br>" . $e->getMessage();
+      // }
+
+      // $conn = null;
     }
-  }
-    
+  // }
+
 }
 ?>
 
