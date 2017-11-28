@@ -1,15 +1,15 @@
 var currentDot;
 
-window.addEventListener("load", startup, false);
-function startup(){
+// window.addEventListener("load", startup, false);
+$(function (){
   selectedColour = document.querySelector("#selectedColour");
   selectedColour.addEventListener("input",selectingColour,false)
   selectedColour.select();
-}
 
-$(".dot").on("click", function() {
-  currentDot = $(this);
-  $('#selectedColour')[0].click();
+  $(".block").on("click", function() {
+    currentDot = $(this);
+    $('#selectedColour')[0].click();
+  });
 });
 
 function selectingColour(event){
