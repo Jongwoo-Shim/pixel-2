@@ -16,13 +16,13 @@ list-style:none;
 display:inline-block;
 }
 
-.dot,
+.block,
 ul li {
 width:2em;
 height:2em;
 }
 
-.dot {
+.block {
 background:#ccc;
 }
 
