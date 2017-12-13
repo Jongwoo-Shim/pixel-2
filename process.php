@@ -39,8 +39,8 @@ for (var $slot in $arr)
     }
 }
 
-mysqli_query($con,"SELECT slot FROM Customers FOR JSON AUTO");
-
+// mysqli_query($con,"SELECT slot FROM Customers FOR JSON AUTO");
+echo json_encode($err)
 $con = null;
 // break;
 ?>
