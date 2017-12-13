@@ -1,22 +1,15 @@
 var currentDot;
 var currentId;
 var server;
-var xmlhttp = new XMLHttpRequest();
-
+//Updating the color
+//recieved.id.css("background-color",recived.color)
 window.addEventListener("load", startup, false);
 function startup(){
   selectedColour = document.querySelector("#selectedColour");
   selectedColour.addEventListener("change", sendUpdate, false);
-  selectedColour.addEventListener("input",selectingColour,false)
+ selectedColour.addEventListener("input",selectingColour,false)
   selectedColour.select();
 };
-
-xmlhttp.onreadystatechange = function(){
-  if(this.readyState == 4 && this.status == 200){
-    var myObj = JSON.parse(this.responseText)
-    $(".myObj.id").css("background-color", myObj.color)
-  }
-}
 
 $(".dot").on("click", function() {
   currentDot = $(this);
@@ -25,12 +18,12 @@ $(".dot").on("click", function() {
 });
 
 function selectingColour(event){
-  currentDot.css("background-color", event.target.value); 
+  currentDot.css("background-color", event.target.value);
 }
 
 function sendUpdate(event){
   var color = document.getElementById("selectedColour");
-  //   GET Request
+//   GET Request
   var xhr = new XMLHttpRequest();
   var url = server + encodeURIComponent(JSON.stringify({"id": currentId, "color": color.value}));
   xhr.open("GET", url, true);

@@ -11,13 +11,11 @@ def gridGenerator(n):
 		f.write("<body>\n")
 		f.write("\t<div class = \"grid\">\n")
 		f.write("\t<ul class = row>\n")
-		count = 0
 		for i in range(n +1):
 			if i != 0:
 				f.write("\t<ul> \n")
 			for i in range(n + 1):
-				f.write("\t<li class = \" "+ str(count) + "\" > </li>\n")
-				count += 1
+				f.write("\t<li class = \" dot \" > </li>\n")
 			f.write("\t</ul>\n")
 		f.write("\t</div>\n")
 		f.write("\t<input type=\"color\" id=\"selectedColour\" value=\"#0000\">\n")
