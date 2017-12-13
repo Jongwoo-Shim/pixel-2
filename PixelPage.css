@@ -29,6 +29,7 @@ background:#ccc;
 body{
   background:#fff;
 }
+
 input[type="color"] {
 	-webkit-appearance: none;
 	border: none;

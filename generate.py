@@ -16,7 +16,7 @@ def gridGenerator(n):
 			if i != 0:
 				f.write("\t<ul> \n")
 			for i in range(n + 1):
-				f.write("\t<li class = \"block" "id = " + str(count) + "\"> </li>\n")
+				f.write("\t<li class = \" "+ str(count) + "\" > </li>\n")
 				count += 1
 			f.write("\t</ul>\n")
 		f.write("\t</div>\n")

@@ -1,7 +1,7 @@
 var currentDot;
 var currentId;
 var server;
-// var source = new EventSource("demo_sse.php");
+var xmlhttp = new XMLHttpRequest();
 
 window.addEventListener("load", startup, false);
 function startup(){
@@ -10,10 +10,13 @@ function startup(){
   selectedColour.addEventListener("input",selectingColour,false)
   selectedColour.select();
 };
-// Figure out how to work it
-// source.onmessage = function(event) {
-//     document.getElementById("result").innerHTML += event.data + "<br>";
-// }; 
+
+xmlhttp.onreadystatechange = function(){
+  if(this.readyState == 4 && this.status == 200){
+    var myObj = JSON.parse(this.responseText)
+    $(".myObj.id").css("background-color", myObj.color)
+  }
+}
 
 $(".dot").on("click", function() {
   currentDot = $(this);
@@ -22,11 +25,12 @@ $(".dot").on("click", function() {
 });
 
 function selectingColour(event){
-  currentDot.css("background-color", event.target.value);
+  currentDot.css("background-color", event.target.value); 
 }
+
 function sendUpdate(event){
   var color = document.getElementById("selectedColour");
-//   GET Request
+  //   GET Request
   var xhr = new XMLHttpRequest();
   var url = server + encodeURIComponent(JSON.stringify({"id": currentId, "color": color.value}));
   xhr.open("GET", url, true);
