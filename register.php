@@ -29,7 +29,8 @@
   //   }
   if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
-      while(1){
+      while(1)
+      {
         // if($count > 3){
         //   echo "<script type =\ "text/javascript\">
         //       document.getElementById("your form id").style.display="block";
@@ -68,17 +69,17 @@
               mysqli_query($con,"INSERT INTO Customers (username, password)
               VALUES ('$name', '$pass')");
               echo "New Account Created";
+              break;
             }
           }
           catch(PDOException $e){
             echo $sql . "<br>" . $e->getMessage();
           }
-
-          $con = null;
-          break;
         }
       }
-
+      $con = null;
+      // redirect to login page
+      // $dongle = true;
   }
   ?>
 </body>
