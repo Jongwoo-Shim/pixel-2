@@ -15,6 +15,7 @@
   <input type="submit" value="Submit">
 </form>
 <?php
+$dongle = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     // collect value of input field
     // $captcha = false
@@ -47,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if(mysqli_num_rows($result1) > 0 )
         {
           $con = null;
+          $GLOBALS["dongle"] = true;
         }
 
         else
@@ -59,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
       //     echo $sql . "<br>" . $e->getMessage();
       // }
 
-      // $conn = null;
+      // $con = null;
     }
   // }
 
